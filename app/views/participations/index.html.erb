@@ -1,29 +1,36 @@
-<h1>Listing participations</h1>
-
-<table>
+<%- model_class = Participation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Participation %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Opportunity</th>
-      <th>User</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @participations.each do |participation| %>
       <tr>
-        <td><%= participation.opportunity %></td>
-        <td><%= participation.user %></td>
+        <td><%= participation.id %></td>
         <td><%= participation.notes %></td>
-        <td><%= link_to 'Show', participation %></td>
-        <td><%= link_to 'Edit', edit_participation_path(participation) %></td>
-        <td><%= link_to 'Destroy', participation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l participation.created_at, format: :long %></td>
+        <td>
+          <%= link_to participation_path(participation), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to participation_path(participation), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Participation', new_participation_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_participation_path,
+            :class => 'btn btn-primary' %>
