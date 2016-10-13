@@ -1,0 +1,2 @@
+json.extract! opportunity, :id, :description, :title, :deadline, :time, :location, :organization_id, :user_id, :points, :community_id, :venue_id, :created_at, :updated_at
+json.url opportunity_url(opportunity, format: :json)
