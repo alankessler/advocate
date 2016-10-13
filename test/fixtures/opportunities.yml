@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  title: MyString
+  deadline: 2016-10-13
+  time: 2016-10-13 03:16:53
+  location: MyText
+  organization_id: 
+  user_id: 
+  points: 1
+  community_id: 
+  venue_id: 
+
+two:
+  description: MyText
+  title: MyString
+  deadline: 2016-10-13
+  time: 2016-10-13 03:16:53
+  location: MyText
+  organization_id: 
+  user_id: 
+  points: 1
+  community_id: 
+  venue_id: 
