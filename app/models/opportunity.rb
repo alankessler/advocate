@@ -3,4 +3,5 @@ class Opportunity < ActiveRecord::Base
   belongs_to :user
   belongs_to :community
   belongs_to :venue
+  has_many :rsvps
 end
