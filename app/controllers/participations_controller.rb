@@ -29,6 +29,7 @@ class ParticipationsController < ApplicationController
   # POST /participations.json
   def create
     @participation = Participation.new(participation_params)
+    @participation.user = current_user
 
     respond_to do |format|
       if @participation.save
